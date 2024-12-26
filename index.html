@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Webpage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1f1f1f;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        header:hover {
+            transform: translateY(-5px);
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 60px;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            background-color: #575757;
+            color: #f1f1f1;
+            transform: translateY(-3px);
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('3d-architecture.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: transform 0.3s;
+            opacity: 0.8;
+        }
+        .background:hover {
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 120px auto 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .section {
+            background-color: #1e1e1e;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            perspective: 1000px;
+        }
+        .section:hover {
+            transform: rotateY(3deg) rotateX(3deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+        }
+        .profile-picture {
+            float: left;
+            margin-right: 20px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .profile-picture:hover {
+            transform: rotateZ(360deg);
+        }
+        .clear {
+            clear: both;
+        }
+        footer {
+            background-color: #1f1f1f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
+        }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #4CAF50;
+        }
+        .social-links i {
+            margin-right: 8px;
+        }
+        .animate-fade {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-slide {
+            animation: slideIn 2s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .animate-text {
+            animation: textGlow 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50; }
+            to { text-shadow: 0 0 20px #45a049, 0 0 30px #45a049, 0 0 40px #45a049; }
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+        .highlight {
+            color: #4CAF50;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1 class="animate-text">Shashwat Mishra</h1>
+        <p>Welcome to my personal webpage</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="about" class="section animate-fade">
+            <h2>About Me</h2>
+            <img src="shashwat.jpeg" alt="Profile Picture" class="profile-picture">
+            <p>Hi, I'm <span class="highlight">Shashwat Mishra</span> I am a CSE 2nd year Student</p>
+            <div class="clear"></div>
+        </section>
+        <section id="skills" class="section animate-slide">
+            <h2>Skills</h2>
+            <ul>
+                <li><span class="highlight">HTML</span></li>
+                <li><span class="highlight">CSS</span></li>
+                <li><span class="highlight">JavaScript</span></li>
+                <li><span class="highlight">C Language</span></li>
+                <li><span class="highlight">Cyber Security</span></li>
+                <li><span class="highlight">Linux Operating System</span></li>
+            </ul>
+        </section>
+        <section id="projects" class="section animate-fade">
+            <h2>Projects</h2>
+            <p>Here are some of my standout projects:</p>
+            <ul>
+                <li><a href="ransomware.pdf" download>Project 4: Ransomware Implementation & Detection</a></li>
+            </ul>
+        </section>
+        <section id="contact" class="section animate-slide">
+            <h2>Contact Me</h2>
+            <div class="social-links">
+                <a href="mailto:imshashwat007@gmail.com?subject=Contact%20from%20Webpage" target="_blank"><i class="fas fa-envelope"></i>Email</a>
+                <a href="https://www.instagram.com/imshashwat007" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/@imshashwat007" target="_blank">YouTube</a>
+                <a href="tel:+919450243422" target="_blank">Phone</a>
